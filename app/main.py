@@ -8,9 +8,7 @@ class Person:
 
 
 def create_person_list(people: list) -> list:
-    person_objects = []
-    for person_dict in people:
-        person_objects.append(Person(person_dict["name"], person_dict["age"]))
+    person_objects = [Person(p["name"], p["age"]) for p in people]
     for person_dict in people:
         real_person = Person.people[person_dict["name"]]
         if person_dict.get("wife"):
